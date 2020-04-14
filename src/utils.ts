@@ -16,3 +16,7 @@ export function getGradient(variant: ChoiceType) {
 export function didHumanWin(humanPicked: ChoiceType, machinePicked: Option) {
   return machinePicked.lossesTo.includes(humanPicked);
 }
+
+export function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

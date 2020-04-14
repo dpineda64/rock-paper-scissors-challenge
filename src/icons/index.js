@@ -1,0 +1,5 @@
+export { default as Close } from './Close'
+export { default as Paper } from './Paper'
+export { default as Rock } from './Rock'
+export { default as Rules } from './Rules'
+export { default as Scissors } from './Scissors'

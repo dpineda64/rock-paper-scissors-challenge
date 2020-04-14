@@ -19,7 +19,7 @@ export default function Rules() {
       {modalOpen && (
         <Modal>
           <h1> Rules </h1>
-          <Svg icon={false} name="image-rules" />
+          <Svg icon={false} name="rules" />
           <a href="/" onClick={_toggleModal}>
             <Svg name="close" />
           </a>
