@@ -1,0 +1,60 @@
+html,
+body {
+  background-image: radial-gradient(
+    circle at top center,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#root {
+  padding: 3rem;
+}
+
+@media screen and (min-width: 375px) {
+  #root {
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+  .result-message {
+    position: absolute;
+    transform: translateY(250px);
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .quadrant.decided .choice:first-child {
+    transform: translateX(-100%);
+  }
+  .quadrant.decided .choice:last-child {
+    transform: translateX(100%);
+  }
+}
+
+.quadrant {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+
+.quadrant.only-result {
+  grid-template-columns: auto auto;
+}
+
+@media screen and (min-width: 376px) {
+  .quadrant.decided {
+    grid-template-columns: auto auto auto;
+  }
+  .quadrant {
+    gap: 100px;
+  }
+}
