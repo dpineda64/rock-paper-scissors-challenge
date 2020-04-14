@@ -37,7 +37,6 @@ function App() {
     setHouseSelected(null);
     setSelected(null);
   };
-  console.log(selected !== null);
   return (
     <>
       <Top title="Rock Paper Scissors" score={score} />
