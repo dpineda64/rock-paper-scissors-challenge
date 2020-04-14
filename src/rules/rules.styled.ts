@@ -30,6 +30,7 @@ export const RulesContainer = styled('div')({
   left: 0,
   right: 0,
   bottom: 0,
+  textAlign: 'center',
   [theme.queries[1]]: {
     textAlign: 'right',
     button: {

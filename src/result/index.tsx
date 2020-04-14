@@ -25,7 +25,7 @@ export default function result({
     <>
       <Selected decided={!deciding}>
         <span> you picked </span>
-        <Choice variant={humanChoice} />
+        <Choice variant={humanChoice} winner={!deciding && win} />
       </Selected>
       {!deciding && (
         <ResultMessage
@@ -35,7 +35,10 @@ export default function result({
       )}
       <Selected decided={!deciding}>
         <span> the house picked </span>
-        <Choice variant={deciding ? 'empty' : houseChoice} />
+        <Choice
+          variant={deciding ? 'empty' : houseChoice}
+          winner={!win && !draw}
+        />
       </Selected>
     </>
   );
