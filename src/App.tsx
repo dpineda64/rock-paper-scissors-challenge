@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Top from './top';
 import Choice, { ChoiceType } from './choice';
 import Result from './result';
@@ -15,6 +15,11 @@ function App() {
   const [win, setWin] = useState<boolean>(true);
   const [score, setScore] = useState(0);
 
+  useEffect(() => {
+    const scoreStored = localStorage.getItem('score');
+    if (scoreStored) setScore(Number(scoreStored));
+  }, []);
+
   const _makeChoice = (c: ChoiceType) => {
     setDeciding(true);
     setSelected(c);
@@ -25,10 +30,14 @@ function App() {
       const didWin = didHumanWin(c, machinePicked);
       setWin(didWin);
       setHouseSelected(machinePicked.name);
-      setScore(
-        didWin ? score + 1 : c === machinePicked.name ? score : score - 1,
-      );
+      const newScore = didWin
+        ? score + 1
+        : c === machinePicked.name
+        ? score
+        : score - 1;
+      setScore(newScore);
       setDeciding(false);
+      localStorage.setItem('score', newScore.toString());
     }, 1000);
   };
 
@@ -51,12 +60,12 @@ function App() {
           ))
         ) : (
           <Result
-            draw={selected === houseSelected}
             win={win}
             humanChoice={selected}
             houseChoice={houseSelected!}
             deciding={deciding}
             playAgain={_playAgin}
+            draw={selected === houseSelected}
           />
         )}
       </Quadrant>
